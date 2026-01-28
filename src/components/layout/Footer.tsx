@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand + tagline */}
           <div>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
-              Stay grounded with Pulse
+              Stay grounded
             </h2>
             <p className="mt-3 text-body text-foreground/70 max-w-sm">
               Get practical frameworks for living intentionally in a complicated

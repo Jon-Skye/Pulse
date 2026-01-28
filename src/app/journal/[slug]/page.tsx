@@ -10,6 +10,45 @@ import { Article } from "@/lib/types";
 // Always fetch fresh data from Supabase (no static caching)
 export const dynamic = "force-dynamic";
 
+// Helper to render content with inline images inserted at breakpoints
+function renderContentWithImages(
+  content: string,
+  inlineImage1: string | null,
+  inlineImage2: string | null
+) {
+  // Split content by closing paragraph or heading tags
+  const parts = content.split(/(<\/p>|<\/h2>|<\/h3>)/gi);
+
+  // Reassemble parts (each split removes the delimiter, so we pair them back)
+  const sections: string[] = [];
+  for (let i = 0; i < parts.length; i += 2) {
+    const text = parts[i] || "";
+    const tag = parts[i + 1] || "";
+    if (text || tag) {
+      sections.push(text + tag);
+    }
+  }
+
+  // Calculate insertion points (after ~1/3 and ~2/3 of sections)
+  const insertPoint1 = Math.floor(sections.length / 3);
+  const insertPoint2 = Math.floor((sections.length * 2) / 3);
+
+  // Build final content with images
+  const result: string[] = [];
+  sections.forEach((section, index) => {
+    result.push(section);
+
+    if (index === insertPoint1 && inlineImage1) {
+      result.push(`<figure class="my-10"><img src="${inlineImage1}" alt="" class="w-full rounded-lg" /></figure>`);
+    }
+    if (index === insertPoint2 && inlineImage2) {
+      result.push(`<figure class="my-10"><img src="${inlineImage2}" alt="" class="w-full rounded-lg" /></figure>`);
+    }
+  });
+
+  return result.join("");
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -95,11 +134,17 @@ export default async function ArticlePage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Content */}
+            {/* Content with inline images */}
             {article.content && (
               <div
                 className="prose mt-12"
-                dangerouslySetInnerHTML={{ __html: article.content }}
+                dangerouslySetInnerHTML={{
+                  __html: renderContentWithImages(
+                    article.content,
+                    article.inline_image_1,
+                    article.inline_image_2
+                  ),
+                }}
               />
             )}
           </Container>

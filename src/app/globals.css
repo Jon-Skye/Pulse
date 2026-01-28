@@ -61,7 +61,15 @@
   }
 
   .prose img {
-    @apply rounded-sm my-8;
+    @apply w-full rounded-lg my-10;
+  }
+
+  .prose figure {
+    @apply my-10;
+  }
+
+  .prose figcaption {
+    @apply text-body-sm text-foreground/60 mt-3 text-center;
   }
 }
 

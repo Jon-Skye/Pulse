@@ -10,4 +10,6 @@ export interface Article {
   image_url: string | null;
   featured: boolean;
   published_date: string;
+  inline_image_1: string | null;
+  inline_image_2: string | null;
 }
