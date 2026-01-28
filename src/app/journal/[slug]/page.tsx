@@ -6,6 +6,9 @@ import Container from "@/components/ui/Container";
 import { supabase } from "@/lib/supabase";
 import { Article } from "@/lib/types";
 
+// Always fetch fresh data from Supabase (no static caching)
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

@@ -20,8 +20,8 @@ export default function StatsSection() {
         <p className="text-body-lg text-foreground/70 text-center mt-3">
           Real people making real changes in their lives
         </p>
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="space-y-10">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:[grid-template-columns:repeat(2,1fr)]">
+          <div className="space-y-10 w-[300px]">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <span className="font-serif text-4xl md:text-5xl font-semibold text-foreground">
@@ -31,7 +31,7 @@ export default function StatsSection() {
               </div>
             ))}
           </div>
-          <div className="relative aspect-[4/3] lg:aspect-[3/4] rounded-lg overflow-hidden bg-background">
+          <div className="relative w-[800px] h-[550px] rounded-lg overflow-hidden bg-background">
             <Image
               src="/images/Stats-image.png"
               alt=""

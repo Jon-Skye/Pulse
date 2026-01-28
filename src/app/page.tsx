@@ -8,6 +8,9 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import SubscribeSection from "@/components/home/SubscribeSection";
 import CtaSection from "@/components/home/CtaSection";
 
+// Always fetch fresh data from Supabase (no static caching)
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">

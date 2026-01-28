@@ -5,6 +5,9 @@ import ArticleCard from "@/components/articles/ArticleCard";
 import { supabase } from "@/lib/supabase";
 import { Article } from "@/lib/types";
 
+// Always fetch fresh data from Supabase (no static caching)
+export const dynamic = "force-dynamic";
+
 async function getArticles(): Promise<Article[]> {
   const { data, error } = await supabase
     .from("articles")

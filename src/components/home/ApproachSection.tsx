@@ -1,32 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { supabase } from "@/lib/supabase";
+import { Article } from "@/lib/types";
 
-const cards = [
-  {
-    image: "/images/Article1.png",
-    title: "Actionable minimalism for real constraints",
-    description:
-      "Clear next steps that fit a 50-hour work week and a 650 square foot apartment.",
-    slug: "finding-balance-mindful-living", // journal article 1
-  },
-  {
-    image: "/images/Article2.png",
-    title: "Honest product curation with real prices",
-    description:
-      "We test for longevity and list the cost. No hidden aspirations or architectural tourism.",
-    slug: "art-of-slow-mornings", // journal article 2
-  },
-  {
-    image: "/images/Article3.png",
-    title: "Small-space solutions for renters",
-    description:
-      "Practical frameworks designed for temporary walls and landlord restrictions.",
-    slug: "nourishing-seasonal-eating", // journal article 3
-  },
+// Custom images for each card position
+const cardImages = [
+  "/images/Article1.png",
+  "/images/Article2.png",
+  "/images/Article3.png",
 ];
 
-export default function ApproachSection() {
+async function getArticles(): Promise<Article[]> {
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*")
+    .order("published_date", { ascending: false })
+    .limit(3);
+
+  if (error) {
+    console.error("Error fetching articles:", error);
+    return [];
+  }
+
+  return data || [];
+}
+
+export default async function ApproachSection() {
+  const articles = await getArticles();
   return (
     <section className="py-16 md:py-24 bg-muted">
       <Container>
@@ -41,16 +42,16 @@ export default function ApproachSection() {
           performative.
         </p>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cards.map((card) => (
+          {articles.map((article, index) => (
             <Link
-              key={card.title}
-              href={`/journal/${card.slug}`}
+              key={article.id}
+              href={`/journal/${article.slug}`}
               className="block group"
             >
               <article className="bg-background rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
                 <div className="relative aspect-[4/3] md:aspect-auto md:h-[654px] bg-muted overflow-hidden">
                   <Image
-                    src={card.image}
+                    src={cardImages[index] || article.image_url || "/images/placeholder.jpg"}
                     alt=""
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -59,10 +60,10 @@ export default function ApproachSection() {
                 </div>
                 <div className="px-6 pt-6 pb-[60px]">
                   <h3 className="font-serif text-h3 text-foreground group-hover:text-accent transition-colors">
-                    {card.title}
+                    {article.title}
                   </h3>
                   <p className="text-body text-foreground/70 mt-2">
-                    {card.description}
+                    {article.excerpt}
                   </p>
                 </div>
               </article>
