@@ -38,17 +38,22 @@ export default async function ArticlePage({ params }: PageProps) {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Image */}
+        {/* Hero Image — constrained to article width, not full viewport */}
         {article.image_url && (
-          <div className="relative w-full h-[50vh] md:h-[60vh] bg-muted">
-            <Image
-              src={article.image_url}
-              alt={article.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <section className="py-8 md:py-12 bg-muted">
+            <Container className="max-w-article">
+              <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg bg-muted">
+                <Image
+                  src={article.image_url}
+                  alt={article.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 720px"
+                />
+              </div>
+            </Container>
+          </section>
         )}
 
         {/* Article Content */}
