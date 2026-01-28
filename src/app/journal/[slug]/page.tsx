@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Header from "@/components/layout/Header";
@@ -14,6 +15,7 @@ interface PageProps {
 }
 
 async function getArticle(slug: string): Promise<Article | null> {
+  noStore();
   const { data, error } = await supabase
     .from("articles")
     .select("*")

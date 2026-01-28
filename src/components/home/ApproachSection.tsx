@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
@@ -12,6 +13,7 @@ const cardImages = [
 ];
 
 async function getArticles(): Promise<Article[]> {
+  noStore();
   const { data, error } = await supabase
     .from("articles")
     .select("*")

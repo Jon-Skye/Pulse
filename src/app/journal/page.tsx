@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
@@ -9,6 +10,7 @@ import { Article } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 async function getArticles(): Promise<Article[]> {
+  noStore();
   const { data, error } = await supabase
     .from("articles")
     .select("*")
