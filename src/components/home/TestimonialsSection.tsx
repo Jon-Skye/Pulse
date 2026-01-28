@@ -11,7 +11,7 @@ const testimonials = [
   },
   {
     quote:
-      "I've read every minimalism book. This is the first one that doesn't make me feel guilty.",
+      "I've read every minimalism book. This is the only one I love",
     name: "Marcus Webb",
     role: "Software engineer, Toronto",
     image: "/images/Testimonial2.png",
