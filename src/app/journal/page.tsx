@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { unstable_noStore as noStore } from "next/cache";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -46,9 +47,17 @@ export default async function JournalPage() {
         <section className="py-16 md:py-24">
           <Container>
             {articles.length > 0 ? (
-              <div className="grid grid-cols-1 gap-8 md:gap-12">
-                {articles.map((article) => (
-                  <ArticleCard key={article.id} article={article} />
+              <div className="flex flex-col">
+                {articles.map((article, i) => (
+                  <Fragment key={article.id}>
+                    {i > 0 && (
+                      <hr
+                        className="w-full border-0 border-t border-foreground/10 my-8 md:my-12"
+                        aria-hidden
+                      />
+                    )}
+                    <ArticleCard article={article} />
+                  </Fragment>
                 ))}
               </div>
             ) : (

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import Container from "@/components/ui/Container";
 
@@ -39,15 +38,6 @@ export default function CtaSection() {
         <p className="mt-4 text-body-sm text-foreground/50">
           By subscribing you agree to our privacy policy and terms of service.
         </p>
-        <div className="mt-12 relative w-full max-w-4xl mx-auto aspect-[16/10] overflow-hidden rounded-lg bg-muted">
-          <Image
-            src="/images/CTA-image.png"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 1024px"
-          />
-        </div>
       </Container>
     </section>
   );

@@ -18,7 +18,7 @@ export default function HeroSection() {
         >
           Journal
         </Link>
-        <div className="mt-12 md:mt-16 relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-lg bg-muted">
+        <div className="mt-12 md:mt-16 relative w-full max-w-[1232px] mx-auto aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-lg bg-muted">
           <Image
             src="/images/Hero-image.png"
             alt=""

@@ -11,7 +11,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     <article className="group">
       <Link href={`/journal/${article.slug}`}>
         {/* Image */}
-        <div className="relative w-full h-[500px] overflow-hidden bg-muted mb-4">
+        <div className="relative w-full h-[500px] overflow-hidden rounded-lg bg-muted mb-4">
           {article.image_url ? (
             <Image
               src={article.image_url}

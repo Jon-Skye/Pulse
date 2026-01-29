@@ -60,12 +60,23 @@
     @apply text-accent underline underline-offset-2 hover:text-accent-dark transition-colors;
   }
 
-  .prose img {
-    @apply w-full rounded-lg my-10;
+  .prose img,
+  .prose figure img,
+  .prose img[style],
+  .prose figure img[style] {
+    @apply w-full my-10;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    overflow: visible !important;
   }
 
   .prose figure {
     @apply my-10;
+    border-radius: 0 !important;
+    overflow: visible !important;
   }
 
   .prose figcaption {

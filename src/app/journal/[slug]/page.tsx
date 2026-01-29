@@ -39,10 +39,10 @@ function renderContentWithImages(
     result.push(section);
 
     if (index === insertPoint1 && inlineImage1) {
-      result.push(`<figure class="my-10"><img src="${inlineImage1}" alt="" class="w-full rounded-lg" /></figure>`);
+      result.push(`<figure class="my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage1}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
     }
     if (index === insertPoint2 && inlineImage2) {
-      result.push(`<figure class="my-10"><img src="${inlineImage2}" alt="" class="w-full rounded-lg" /></figure>`);
+      result.push(`<figure class="my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage2}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
     }
   });
 
