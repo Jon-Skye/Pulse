@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import CtaSection from "@/components/home/CtaSection";
 
 export default function AboutPage() {
   return (
@@ -14,7 +15,14 @@ export default function AboutPage() {
             <img
               src="/images/about.png"
               alt="About PULSE"
-              className="w-full rounded-lg mb-[100px]"
+              className="w-full rounded-lg mb-6"
+            />
+            <h4 className="font-sans text-h4 font-light text-foreground mb-0 text-center">
+              A wellness magazine dedicated to mindful living and holistic well-being.
+            </h4>
+            <hr
+              className="w-full border-0 border-t border-foreground/10 my-8 md:my-12"
+              aria-hidden
             />
             <h2 className="font-serif text-h2 mb-8 text-center">About us</h2>
             <div className="space-y-6 text-body-lg text-foreground/80 text-left">
@@ -173,6 +181,8 @@ export default function AboutPage() {
             </div>
           </Container>
         </section>
+
+        <CtaSection />
       </main>
 
       <Footer />

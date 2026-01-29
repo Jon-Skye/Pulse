@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import ArticleCard from "@/components/articles/ArticleCard";
 import { supabase } from "@/lib/supabase";
 import { Article } from "@/lib/types";
 
@@ -69,9 +70,28 @@ async function getArticle(slug: string): Promise<Article | null> {
   return data;
 }
 
+async function getRecommendedArticles(excludeSlug: string): Promise<Article[]> {
+  noStore();
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*")
+    .order("published_date", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching recommended articles:", error);
+    return [];
+  }
+
+  const others = (data || []).filter((a) => a.slug !== excludeSlug);
+  return others.slice(0, 2);
+}
+
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = await getArticle(slug);
+  const [article, recommended] = await Promise.all([
+    getArticle(slug),
+    getRecommendedArticles(slug),
+  ]);
 
   if (!article) {
     notFound();
@@ -149,6 +169,20 @@ export default async function ArticlePage({ params }: PageProps) {
             )}
           </Container>
         </article>
+
+        {/* Recommended reading */}
+        {recommended.length > 0 && (
+          <section className="py-16 md:py-24 bg-muted">
+            <Container>
+              <h2 className="font-serif text-h2 mb-12">Recommended reading</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+                {recommended.map((a) => (
+                  <ArticleCard key={a.id} article={a} />
+                ))}
+              </div>
+            </Container>
+          </section>
+        )}
       </main>
 
       <Footer />
