@@ -102,10 +102,10 @@ export default async function ArticlePage({ params }: PageProps) {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Image — constrained to article width, not full viewport */}
+        {/* Hero Image — 1200px wide */}
         {article.image_url && (
           <section className="py-8 md:py-12 bg-muted">
-            <Container className="max-w-article">
+            <Container className="max-w-[1200px]">
               <div className="relative w-full h-[500px] overflow-hidden rounded-lg bg-muted">
                 <Image
                   src={article.image_url}
