@@ -46,7 +46,7 @@ export default async function JournalPage() {
         <section className="py-16 md:py-24">
           <Container>
             {articles.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+              <div className="grid grid-cols-1 gap-8 md:gap-12">
                 {articles.map((article) => (
                   <ArticleCard key={article.id} article={article} />
                 ))}

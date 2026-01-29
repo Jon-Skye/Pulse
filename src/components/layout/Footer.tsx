@@ -32,93 +32,33 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Nav columns */}
-          <nav className="grid grid-cols-2 gap-x-12 gap-y-1">
+          {/* Nav */}
+          <nav className="text-right">
             <div>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/about"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    About Pulse
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/journal"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Journal
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Shop
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
+                    className="text-base text-foreground/70 hover:text-foreground transition-colors"
                   >
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
+                    href="/about"
+                    className="text-base text-foreground/70 hover:text-foreground transition-colors"
                   >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Privacy
+                    About
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
+                    href="/journal"
+                    className="text-base text-foreground/70 hover:text-foreground transition-colors"
                   >
-                    Terms
+                    Journal
                   </Link>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:hello@pulse.example"
-                    className="text-body-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    Email
-                  </a>
                 </li>
               </ul>
             </div>
@@ -130,11 +70,11 @@ export default function Footer() {
           <span className="font-serif text-2xl font-semibold tracking-tight text-foreground">
             PULSE
           </span>
-          <div className="flex gap-3">
+          <div className="flex -space-x-3">
             {avatarSources.map((src, i) => (
               <div
                 key={i}
-                className="relative w-12 h-12 rounded-full overflow-hidden bg-foreground/10 flex-shrink-0"
+                className="relative w-12 h-12 rounded-full overflow-hidden bg-foreground/10 flex-shrink-0 ring-2 ring-muted"
               >
                 <Image
                   src={src}
@@ -159,7 +99,7 @@ export default function Footer() {
               <a
                 key={s.name}
                 href={s.href}
-                className="text-foreground/50 hover:text-foreground transition-colors"
+                className="text-sm font-light text-foreground/50 hover:text-foreground transition-colors"
                 aria-label={s.name}
               >
                 {s.name}
