@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: PageProps) {
         {article.image_url && (
           <section className="py-8 md:py-12 bg-muted">
             <Container className="max-w-article">
-              <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg bg-muted">
+              <div className="relative w-full h-[500px] overflow-hidden rounded-lg bg-muted">
                 <Image
                   src={article.image_url}
                   alt={article.title}

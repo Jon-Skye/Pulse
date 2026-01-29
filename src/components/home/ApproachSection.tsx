@@ -8,7 +8,7 @@ import { Article } from "@/lib/types";
 // Custom images for each card position
 const cardImages = [
   "/images/Article1.png",
-  "/images/Article2.png",
+  "/images/article2-cover.png",
   "/images/Article3.png",
 ];
 

@@ -36,7 +36,7 @@ export default async function JournalPage() {
         <section className="py-16 md:py-24 bg-muted">
           <Container>
             <h1 className="font-serif text-h1 text-center">Journal</h1>
-            <p className="text-body-lg text-foreground/60 text-center mt-4 max-w-2xl mx-auto">
+            <p className="text-body-lg text-foreground/60 text-center mt-4 max-w-[800px] mx-auto">
               Explore our collection of articles on wellness, mindfulness, and mindful living.
             </p>
           </Container>
