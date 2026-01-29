@@ -43,6 +43,14 @@ export default function Header() {
             </li>
             <li>
               <Link
+                href="/shop"
+                className="text-body-sm uppercase tracking-wider hover:text-accent transition-colors"
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact"
                 className="text-body-sm uppercase tracking-wider hover:text-accent transition-colors"
               >
@@ -110,6 +118,15 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Journal
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/shop"
+                className="block text-body-sm uppercase tracking-wider hover:text-accent transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Shop
               </Link>
             </li>
             <li>

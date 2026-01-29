@@ -13,3 +13,14 @@ export interface Article {
   inline_image_1: string | null;
   inline_image_2: string | null;
 }
+
+export interface Product {
+  id: string;
+  created_at: string;
+  name: string;
+  price: number;
+  image_url: string | null;
+  description: string | null;
+  category: string | null;
+  rating: number;
+}

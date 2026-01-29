@@ -7,7 +7,7 @@ export default function HeroSection() {
     <section className="pt-12 md:pt-20 pb-12 md:pb-16">
       <Container className="text-center">
         <h1 className="font-serif text-h1 md:text-[2.75rem] lg:text-[3rem] text-foreground max-w-2xl mx-auto">
-          Simplify your life with intention
+          Living life with purpose
         </h1>
         <p className="text-body-lg text-foreground/70 mt-4 max-w-xl mx-auto">
           Practical frameworks for minimalism that fit real life
