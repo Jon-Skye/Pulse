@@ -41,6 +41,14 @@ export default function Header() {
                 Journal
               </Link>
             </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-body-sm uppercase tracking-wider hover:text-accent transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -102,6 +110,15 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Journal
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="block text-body-sm uppercase tracking-wider hover:text-accent transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
               </Link>
             </li>
           </ul>

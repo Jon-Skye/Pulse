@@ -11,12 +11,14 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Mission */}
         <section className="py-16 md:py-24">
-          <Container className="max-w-article">
+          <div className="max-w-[1200px] mx-auto text-center px-6 mb-6">
             <img
               src="/images/about.png"
               alt="About PULSE"
-              className="w-full rounded-lg mb-6"
+              className="w-full rounded-lg"
             />
+          </div>
+          <Container className="max-w-article">
             <h4 className="font-sans text-h4 font-light text-foreground mb-0 text-center">
               A wellness magazine dedicated to mindful living and holistic well-being.
             </h4>

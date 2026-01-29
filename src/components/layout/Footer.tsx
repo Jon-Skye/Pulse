@@ -60,6 +60,14 @@ export default function Footer() {
                     Journal
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="text-base text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
           </nav>
