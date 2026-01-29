@@ -79,6 +79,15 @@
     overflow: visible !important;
   }
 
+  /* Inline article images: 1200px max, centered in viewport */
+  .prose .article-inline-figure {
+    width: 1200px;
+    max-width: 100vw;
+    margin-left: calc(50% - min(600px, 50vw));
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
   .prose figcaption {
     @apply text-body-sm text-foreground/60 mt-3 text-center;
   }

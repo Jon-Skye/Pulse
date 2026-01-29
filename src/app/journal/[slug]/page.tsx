@@ -40,10 +40,10 @@ function renderContentWithImages(
     result.push(section);
 
     if (index === insertPoint1 && inlineImage1) {
-      result.push(`<figure class="my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage1}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
+      result.push(`<figure class="article-inline-figure my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage1}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
     }
     if (index === insertPoint2 && inlineImage2) {
-      result.push(`<figure class="my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage2}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
+      result.push(`<figure class="article-inline-figure my-10" style="border-radius:0 !important;overflow:visible !important"><img src="${inlineImage2}" alt="" class="w-full" style="border-radius:0 !important;-webkit-border-radius:0 !important;image-rendering:crisp-edges" /></figure>`);
     }
   });
 
@@ -120,9 +120,10 @@ export default async function ArticlePage({ params }: PageProps) {
           </section>
         )}
 
-        {/* Article Content */}
+        {/* Article Content — 750px column centered in viewport, header centered, body left-aligned */}
         <article className="py-16 md:py-24">
-          <Container className="max-w-article">
+          <Container>
+            <div className="max-w-[750px] mx-auto text-center">
             {/* Category */}
             {article.category && (
               <span className="text-caption uppercase tracking-wider text-accent">
@@ -134,7 +135,7 @@ export default async function ArticlePage({ params }: PageProps) {
             <h1 className="font-serif text-h1 mt-4">{article.title}</h1>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mt-6 pb-8 border-b border-foreground/10">
+            <div className="flex items-center justify-center gap-4 mt-6 pb-8 border-b border-foreground/10">
               {article.author && (
                 <span className="text-body text-foreground/60">
                   By {article.author}
@@ -154,10 +155,10 @@ export default async function ArticlePage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Content with inline images */}
+            {/* Content with inline images — text 750px, inline figures 1200px max, body left-aligned */}
             {article.content && (
               <div
-                className="prose mt-12"
+                className="prose mt-12 max-w-[750px] text-left leading-[30px]"
                 dangerouslySetInnerHTML={{
                   __html: renderContentWithImages(
                     article.content,
@@ -167,6 +168,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 }}
               />
             )}
+            </div>
           </Container>
         </article>
 
